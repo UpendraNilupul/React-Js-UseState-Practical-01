@@ -1,6 +1,7 @@
 import "./App.css";
+import Header from "./Components/Header";
 import Unit from "./Components/Unit";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 const App = () => {
   const [imageUrl,setImageUrl] = useState('')
@@ -12,7 +13,13 @@ const App = () => {
 
   //console.log(myData);
 
-  return(<div className="main_container">
+  return(
+  <Fragment>
+    <Header/>
+    
+  <div className="main_container">
+
+    
     <div className="main_left">
       <input type="text"value={imageUrl} onChange={(e)=>{
         e.preventDefault()
@@ -70,7 +77,8 @@ const App = () => {
       />
       ))}
     </div>
-  </div>)
+  </div>
+  </Fragment>)
 }
 
 export default App;

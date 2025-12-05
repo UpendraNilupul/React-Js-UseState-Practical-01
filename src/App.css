@@ -1,38 +1,141 @@
-.main_container {
-  margin: 0 auto;
-  width: 90%;
-  display: grid;
-  grid-template-columns: 40% 60%;
-  grid-template-rows: 1;
+* {
+  box-sizing: border-box;
 }
 
-.main_container .main_left {
-  padding-right: 20px;
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header */
+.header_container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.main_container .main_left input {
-  width: 100%;
-  padding: 7px;
-}
-
-.main_container .main_right {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  gap: 17px;
-}
-
-
-
-.main_container .main_right .unit_container {
+  padding: 18px 24px;
+  background-color: antiquewhite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
+}
 
+.header_container h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* make nav semantic and inline */
+.header_container nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.header_container nav li {
+  margin: 0;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+/* Main wrapper: add top padding equal to header height to avoid overlap */
+.main_container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* changed from 40% 60% to 1fr 2fr for better balance */
+  gap: 40px; /* increased gap from 20px */
+  padding-top: 200px; /* increased from 100px */
+  padding-bottom: 40px;
+  align-items: start;
+}
+
+/* Left column */
+.main_container .main_left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  position: sticky; /* make form sticky */
+  top: 100px; /* stick below header */
+}
+
+.main_container .main_left input,
+.main_container .main_left button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.main_container .main_left button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.main_container .main_left button:hover {
+  background-color: #0056b3;
+}
+
+/* Right column: responsive cards grid */
+.main_container .main_right {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: auto;
+  gap: 16px;
+}
+
+/* Unit card */
+.unit_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 12px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.unit_container img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.unit_container h3,
+.unit_container p {
+  margin: 4px 0;
+  text-align: center;
+}
+
+/* small screens */
+@media (max-width: 800px) {
+  .main_container {
+    grid-template-columns: 1fr;
+    padding-top: 100px; /* changed from 76px to match desktop */
+  }
+  .header_container {
+    padding: 14px 16px;
+  }
+  .header_container h1 {
+    font-size: 1.1rem;
+  }
+  .header_container nav ul {
+    gap: 8px;
+  }
 }
