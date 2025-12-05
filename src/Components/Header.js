@@ -1,18 +1,19 @@
+import { FaHome, FaInfoCircle, FaPhone, FaFolderOpen } from 'react-icons/fa';
 
 const Header = () => {
   return (
     <header className='header_container'>
       <h1>Management</h1>
       <nav>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Project</li>
+        <ul>
+          <li><FaHome /> Home</li>
+          <li><FaInfoCircle /> About</li>
+          <li><FaPhone /> Contact</li>
+          <li><FaFolderOpen /> Project</li>
+        </ul>
       </nav>
     </header>
-
-  )
-  
+  );
 }
 
 export default Header;

@@ -23,6 +23,8 @@ html, body {
   gap: 20px;
 }
 
+
+
 .header_container h1 {
   margin: 0;
   font-size: 1.25rem;
@@ -30,29 +32,34 @@ html, body {
 
 /* make nav semantic and inline */
 .header_container nav ul {
+  
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0; 
   display: flex;
   gap: 16px;
   align-items: center;
+  background-color: transparent; 
 }
 
 .header_container nav li {
   margin: 0;
   padding: 4px 8px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* Main wrapper: add top padding equal to header height to avoid overlap */
+
 .main_container {
   margin: 0 auto;
   width: 90%;
   max-width: 1200px;
   display: grid;
-  grid-template-columns: 1fr 2fr; /* changed from 40% 60% to 1fr 2fr for better balance */
-  gap: 40px; /* increased gap from 20px */
-  padding-top: 200px; /* increased from 100px */
+  grid-template-columns: 1fr 2fr; 
+  gap: 40px; 
+  padding-top: 120px; 
   padding-bottom: 40px;
   align-items: start;
 }
@@ -64,8 +71,8 @@ html, body {
   flex-direction: column;
   align-items: stretch;
   gap: 16px;
-  position: sticky; /* make form sticky */
-  top: 100px; /* stick below header */
+  position: sticky; 
+  top: 100px;
 }
 
 .main_container .main_left input,
@@ -127,7 +134,7 @@ html, body {
 @media (max-width: 800px) {
   .main_container {
     grid-template-columns: 1fr;
-    padding-top: 100px; /* changed from 76px to match desktop */
+    padding-top: 100px; 
   }
   .header_container {
     padding: 14px 16px;
